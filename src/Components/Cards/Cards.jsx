@@ -23,33 +23,38 @@ const Home = () => {
     dispatch(AddToCart(e));
   };
   return (
-    <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+    <Grid templateColumns={{base:"repeat(1, 1fr)",sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg:"repeat(4, 1fr)"}} gap={6}>
       {data?.map((e, i) => {
         return (
           <Card maxW="sm" size="sm" key={i}>
             <CardBody>
               <Image src={e.image} alt={e.name} borderRadius="lg" />
               <Stack mt="6" spacing="3">
+              <Stack direction="row" justifyContent="space-between"> 
                 <Heading size="md">{e.name}</Heading>
                 <Text>{e.description}</Text>
-                <Text color="blue.600" fontSize="2xl"></Text>
+              </Stack>
+
+                <Text color="blue.600" fontSize="2xl">{e.price}</Text>
               </Stack>
             </CardBody>
             <Divider />
-            <CardFooter>
-              <ButtonGroup spacing="2">
-                <Button variant="solid" colorScheme="blue">
-                  Buy now
-                </Button>
-                <Button
-                  variant="ghost"
-                  colorScheme="blue"
-                  onClick={() => handleAdd(e)}
-                >
-                  Add to cart
-                </Button>
-              </ButtonGroup>
-            </CardFooter>
+            <Stack
+              direction={{ base: "column", lg: "row" }}
+              justifyContent="space-around"
+              p={4}
+            >
+              <Button variant="solid" colorScheme="orange">
+                Buy now
+              </Button>
+              <Button
+                variant="ghost"
+                colorScheme="orange"
+                onClick={() => handleAdd(e)}
+              >
+                Add to cart
+              </Button>
+            </Stack>
           </Card>
         );
       })}

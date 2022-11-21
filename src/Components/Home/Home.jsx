@@ -5,8 +5,7 @@ import Nav from "../Nav/Nav";
 
 const Home = () => {
   return (
-    <Stack spacing={20}>
-      <Nav />
+    <Stack p={12}>
       <Cards />
     </Stack>
   );
