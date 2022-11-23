@@ -23,19 +23,29 @@ const Home = () => {
     dispatch(AddToCart(e));
   };
   return (
-    <Grid templateColumns={{base:"repeat(1, 1fr)",sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)", lg:"repeat(4, 1fr)"}} gap={6}>
+    <Grid
+      templateColumns={{
+        base: "repeat(1, 1fr)",
+        sm: "repeat(2, 1fr)",
+        md: "repeat(3, 1fr)",
+        lg: "repeat(4, 1fr)",
+      }}
+      gap={6}
+    >
       {data?.map((e, i) => {
         return (
           <Card maxW="sm" size="sm" key={i}>
             <CardBody>
               <Image src={e.image} alt={e.name} borderRadius="lg" />
               <Stack mt="6" spacing="3">
-              <Stack direction="row" justifyContent="space-between"> 
-                <Heading size="md">{e.name}</Heading>
-                <Text>{e.description}</Text>
-              </Stack>
+                <Stack direction="row" justifyContent="space-between">
+                  <Heading size="md">{e.name}</Heading>
+                  <Text>{e.description}</Text>
+                </Stack>
 
-                <Text color="blue.600" fontSize="2xl">{e.price}</Text>
+                <Text color="blue.600" fontSize="2xl">
+                  {e.price}
+                </Text>
               </Stack>
             </CardBody>
             <Divider />
@@ -50,7 +60,7 @@ const Home = () => {
               <Button
                 variant="ghost"
                 colorScheme="orange"
-                onClick={() => handleAdd(e)}
+                onClick={() => handleAdd(e.id)}
               >
                 Add to cart
               </Button>
