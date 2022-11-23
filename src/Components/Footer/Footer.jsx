@@ -20,37 +20,39 @@ const Footer = () => {
       alignItems="center"
       p={12}
       spacing={4}
+      fontFamily="secondary"
+      
     >
       <Stack textAlign="center">
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Informacion
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Contacto
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Ayuda
         </Text>
       </Stack>
       <Stack textAlign="center">
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Metodos de pago
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Devoluciones
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Informar un problema
         </Text>
       </Stack>
       <Stack textAlign="center">
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Quienes somos
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Trabaja con nosotros
         </Text>
-        <Text fontWeight="bold" fontSize={{base: "xs", md:"lg"}}>
+        <Text fontWeight="light" fontSize={{base: "xs", md:"lg"}}>
           Idioma
         </Text>
       </Stack>

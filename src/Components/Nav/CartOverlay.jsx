@@ -69,12 +69,12 @@ const CartOverlay = () => {
                       alignItems="center"
                       key={i}
                     >
-                      <Image src={e.image} w={20} h={20} />
-                      <Text color="whatsapp.500" fontWeight="bold">
-                        {e.name}
+                      <Image src={e.image} w={20} h={20} borderRadius={999}/>
+                      <Text color="secondary.500" fontWeight="bold">
+                        Nombre: {e.name}
                       </Text>
-                      <Text color="whatsapp.500" fontWeight="bold">
-                        {e.price}
+                      <Text color="secondary.500" fontWeight="bold">
+                        Total: {e.price}
                       </Text>
                       <Button onClick={() => remove(e.id)} color="orange">
                         x

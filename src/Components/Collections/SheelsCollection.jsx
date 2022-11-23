@@ -30,12 +30,12 @@ const SheelsCollections = () => {
   };
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple id="popular">
+    <Accordion defaultIndex={[0]} allowMultiple id="popular" fontFamily="secondary">
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Sheels Collection
+            <Box flex="1" textAlign="left"  color="secondary.500" fontWeight="bold">
+              Sheels
             </Box>
             <AccordionIcon />
           </AccordionButton>

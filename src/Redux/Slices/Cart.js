@@ -9,15 +9,25 @@ export const cartSlice = createSlice({
   reducers: {
     AddToCart: (state, action) => {
       if (action.payload <= 12) {
-        let product = state.allProducts.nfts.SkullApe.find(
-          (e) => e.id === action.payload
-        );
-        state.carrito = [...state.carrito, product];
+        const existe = state.carrito.find((e) => e.id === action.payload);
+        if (existe) {
+          alert("El producto ya esta en el carrito");
+        } else {
+          let product = state.allProducts.nfts.SkullApe.find(
+            (e) => e.id === action.payload
+          );
+          state.carrito = [...state.carrito, product];
+        }
       } else {
-        let product = state.allProducts.nfts.Sheels.find(
-          (e) => e.id === action.payload
-        );
-        state.carrito = [...state.carrito, product];
+        const existe = state.carrito.find((e) => e.id === action.payload);
+        if (existe) {
+          alert("El producto ya esta en el carrito");
+        } else {
+          let product = state.allProducts.nfts.Sheels.find(
+            (e) => e.id === action.payload
+          );
+          state.carrito = [...state.carrito, product];
+        }
       }
     },
     RemoveToCart: (state, action) => {

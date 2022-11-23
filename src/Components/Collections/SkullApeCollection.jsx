@@ -31,12 +31,12 @@ const SkullApeCollection = () => {
   };
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple>
+    <Accordion defaultIndex={[0]} allowMultiple fontFamily="secondary" >
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box flex="1" textAlign="left">
-              Skull Ape Collection
+            <Box flex="1" textAlign="left" color="secondary.500" fontWeight="bold">
+              Skull Ape
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -75,14 +75,14 @@ const SkullApeCollection = () => {
                     p={4}
                   >
                     <Button variant="solid" colorScheme="secondary">
-                      Buy now
+                      Comprar
                     </Button>
                     <Button
                       variant="ghost"
                       colorScheme="secondary"
                       onClick={() => handleAdd(e.id)}
                     >
-                      Add to cart
+                      Añadir al carrito
                     </Button>
                   </Stack>
                 </Card>

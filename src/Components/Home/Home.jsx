@@ -33,18 +33,20 @@ const Home = () => {
             alignItems={{ base: "center", md: "start" }}
           >
             <Text
-              fontSize={{ base: "lg", md: "5xl" }}
+              fontSize={{ base: "lg", md: "6xl" }}
+              fontFamily="primary"
               fontWeight="bold"
               color={color}
             >
               Los mejores NFTs
             </Text>
-            <Text fontSize={{ base: "lg", md: "2xl" }} color={color}>
+            <Text fontSize={{ base: "lg", md: "2xl" }} color={color}  fontFamily="secondary" >
               Donde los comerciantes
             </Text>{" "}
             <Text
               color="secondary.500"
               fontSize={{ base: "lg", md: "xl" }}
+              fontFamily="secondary"
               fontWeight="bold"
             >
               han ganado más de $1.300 millones de dólares.

@@ -12,4 +12,9 @@ export default extendTheme({
       },
     }),
   },
+  fonts: {
+    primary: `'Plus Jakarta Sans', sans-serif`,
+    
+   
+  },
 });
