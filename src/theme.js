@@ -3,7 +3,7 @@ import { mode } from "@chakra-ui/theme-tools";
 export default extendTheme({
   colors: {
     primary: theme.colors.orange,
-    secondary: "rgb(71,198,170)"
+    secondary: theme.colors.teal,
   },
   styles: {
     global: (props) => ({

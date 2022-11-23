@@ -1,22 +1,17 @@
 import {
-  Box,
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
-  Divider,
-  Icon,
-  IconButton,
-  Image,
+  CardHeader, Icon, Image,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import React from "react";
+import { BiBadgeCheck } from "react-icons/bi";
+import { GiCutDiamond } from "react-icons/gi";
 import present from "../../assets/present.png";
 import Cards from "../Cards/Cards";
-import { GiCutDiamond } from "react-icons/gi";
-import { BiBadgeCheck } from "react-icons/bi";
 
 const Home = () => {
   const color = useColorModeValue("white", undefined);
@@ -48,7 +43,7 @@ const Home = () => {
               Donde los comerciantes
             </Text>{" "}
             <Text
-              color="secondary"
+              color="secondary.500"
               fontSize={{ base: "lg", md: "xl" }}
               fontWeight="bold"
             >
@@ -72,7 +67,7 @@ const Home = () => {
             <CardFooter p={1} justifyContent="center">
               <Stack direction="row" alignItems="center">
                 <Text fontWeight="bold"> Shellz #7</Text>
-                <Icon as={BiBadgeCheck} w={5} h={5} color="secondary" />
+                <Icon as={BiBadgeCheck} w={5} h={5} color="secondary.500" />
               </Stack>
             </CardFooter>
           </Card>

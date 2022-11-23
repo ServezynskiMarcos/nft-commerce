@@ -12,6 +12,7 @@ const Nav = () => {
       justifyContent="space-between"
       p={4}
       w="full"
+      alignItems="center"
      
     >
       <Stack direction="row" alignItems="center">

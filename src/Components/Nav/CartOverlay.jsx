@@ -12,10 +12,10 @@ import {
   ModalOverlay,
   Stack,
   Text,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { BsCart4, BsX } from "react-icons/bs";
+import { BsCart4 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { ClearCart, RemoveToCart } from "../../Redux/Slices/Cart";
 
@@ -47,30 +47,27 @@ const CartOverlay = () => {
           setOverlay(<OverlayOne />);
           onOpen();
         }}
-        position="fixed"
-        zIndex={100}
-        right={2}
         fontWeight="bold"
-        
       >
         <Icon as={BsCart4} />
         <Text>{carrito.length ? carrito.length : null}</Text>
       </Stack>
 
-      <Box>
-        <Modal isCentered isOpen={isOpen} onClose={onClose}>
+      <Box >
+        <Modal size={{base: "sm" , md:"xl"}} isOpen={isOpen} onClose={onClose}>
           {overlay}
           <ModalContent>
             <ModalHeader>Cart</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Stack spacing={4}>
-                {carrito.map((e) => {
+                {carrito.map((e, i) => {
                   return (
                     <Stack
                       direction="row"
                       justifyContent="space-between"
                       alignItems="center"
+                      key={i}
                     >
                       <Image src={e.image} w={20} h={20} />
                       <Text color="whatsapp.500" fontWeight="bold">

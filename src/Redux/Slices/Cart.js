@@ -8,10 +8,17 @@ export const cartSlice = createSlice({
   },
   reducers: {
     AddToCart: (state, action) => {
-      const product = state.allProducts.nfts.data.find(
-        (e) => e.id === action.payload
-      );
-      state.carrito = [...state.carrito, product];
+      if (action.payload <= 12) {
+        let product = state.allProducts.nfts.SkullApe.find(
+          (e) => e.id === action.payload
+        );
+        state.carrito = [...state.carrito, product];
+      } else {
+        let product = state.allProducts.nfts.Sheels.find(
+          (e) => e.id === action.payload
+        );
+        state.carrito = [...state.carrito, product];
+      }
     },
     RemoveToCart: (state, action) => {
       const deleteProduct = state.carrito.filter(
@@ -20,7 +27,7 @@ export const cartSlice = createSlice({
       state.carrito = deleteProduct;
     },
     ClearCart: (state) => {
-      state.carrito = []
+      state.carrito = [];
     },
   },
 });
