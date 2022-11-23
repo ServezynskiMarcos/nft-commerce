@@ -13,19 +13,21 @@ const Nav = () => {
       p={4}
       w="full"
       alignItems="center"
-     
     >
-      <Stack direction="row" alignItems="center">
-        <Text fontWeight="bold">NFT Commerce</Text>
+      <Text fontWeight="bold">NFT Commerce</Text>
+
+      <Stack direction="row" alignItems="center" spacing={8}>
+        <a href="#colecciones">
+          <Text fontWeight="bold">Colecciones</Text>
+        </a>{" "}
         <IconButton
           aria-label="toggle theme"
           size="sm"
           onClick={toggleColorMode}
           icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-         
         />
+        <CartOverlay />
       </Stack>
-      <CartOverlay />
     </Stack>
   );
 };

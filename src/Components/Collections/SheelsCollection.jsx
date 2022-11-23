@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionButton,
@@ -15,8 +14,9 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Sheels } from "../../assets/nfts.json";
 import { AddToCart } from "../../Redux/Slices/Cart";
@@ -24,14 +24,13 @@ import { AddToCart } from "../../Redux/Slices/Cart";
 const SheelsCollections = () => {
   const dispatch = useDispatch();
   const bgcolor = useColorModeValue("gray.200", undefined);
-  const textColor = useColorModeValue("gray.500", undefined);
-
+  
   const handleAdd = (e) => {
     dispatch(AddToCart(e));
   };
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple>
+    <Accordion defaultIndex={[0]} allowMultiple id="popular">
       <AccordionItem>
         <h2>
           <AccordionButton>

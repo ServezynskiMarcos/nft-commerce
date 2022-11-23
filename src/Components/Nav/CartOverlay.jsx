@@ -86,7 +86,10 @@ const CartOverlay = () => {
             </ModalBody>
             <ModalFooter>
               {carrito.length > 0 ? (
-                <Button onClick={clearCart}>clear cart</Button>
+                <Stack direction="row" spacing={2}>
+                <Button>ir a pagar</Button>
+                <Button onClick={clearCart}>vaciar carrito</Button>
+                </Stack>
               ) : null}
             </ModalFooter>
           </ModalContent>

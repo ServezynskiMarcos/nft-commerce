@@ -1,13 +1,14 @@
+import { Stack } from '@chakra-ui/react'
 import React from 'react'
 import SheelsCollections from '../Collections/SheelsCollection'
 import SkullApeCollection from '../Collections/SkullApeCollection'
 
 const Cards = () => {
   return (
-    <div>
+    <Stack id="colecciones">
       <SkullApeCollection/>
       <SheelsCollections/>
-    </div>
+    </Stack>
   )
 }
 

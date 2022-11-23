@@ -37,7 +37,7 @@ const Home = () => {
               fontWeight="bold"
               color={color}
             >
-              Compra y Vende los mejores NFTs del mercado
+              Los mejores NFTs
             </Text>
             <Text fontSize={{ base: "lg", md: "2xl" }} color={color}>
               Donde los comerciantes
@@ -53,7 +53,7 @@ const Home = () => {
           <Card p={2} bg={bgcolor}>
             <CardHeader p={2} alignItems="center" display="flex" gap={2}>
               <Icon as={GiCutDiamond} w={6} h={6} />
-              <Text fontWeight="bold">Coleccion popular</Text>
+              <a href="#popular"><Text fontWeight="bold">Coleccion popular</Text></a>
             </CardHeader>
             <CardBody p={0}>
               <Image
