@@ -12,7 +12,7 @@ import {
   ModalOverlay,
   Stack,
   Text,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
@@ -53,42 +53,52 @@ const CartOverlay = () => {
         <Text>{carrito.length ? carrito.length : null}</Text>
       </Stack>
 
-      <Box >
-        <Modal size={{base: "sm" , md:"xl"}} isOpen={isOpen} onClose={onClose}>
+      <Box>
+        <Modal
+          size={{ base: "sm", md: "xl" }}
+          isOpen={isOpen}
+          onClose={onClose}
+        >
           {overlay}
           <ModalContent>
-            <ModalHeader>Cart</ModalHeader>
+            <ModalHeader>Carrito</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Stack spacing={4}>
-                {carrito.map((e, i) => {
-                  return (
-                    <Stack
-                      direction="row"
-                      justifyContent="space-between"
-                      alignItems="center"
-                      key={i}
-                    >
-                      <Image src={e.image} w={20} h={20} borderRadius={999}/>
-                      <Text color="secondary.500" fontWeight="bold">
-                        Nombre: {e.name}
-                      </Text>
-                      <Text color="secondary.500" fontWeight="bold">
-                        Total: {e.price}
-                      </Text>
-                      <Button onClick={() => remove(e.id)} color="orange">
-                        x
-                      </Button>
-                    </Stack>
-                  );
-                })}
+                {carrito.length < 1 ? (
+                  <Text fontFamily="primary" textAlign="center">
+                    Tu carrito se encuentra vacio
+                  </Text>
+                ) : (
+                  carrito.map((e, i) => {
+                    return (
+                      <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        key={i}
+                      >
+                        <Image src={e.image} w={20} h={20} borderRadius={999} />
+                        <Text color="secondary.500" fontWeight="bold">
+                          Nombre: {e.name}
+                        </Text>
+                        <Text color="secondary.500" fontWeight="bold">
+                          Total: {e.price}
+                        </Text>
+                        <Button onClick={() => remove(e.id)} color="orange">
+                          x
+                        </Button>
+                      </Stack>
+                    );
+                  })
+                )}
               </Stack>
             </ModalBody>
             <ModalFooter>
               {carrito.length > 0 ? (
                 <Stack direction="row" spacing={2}>
-                <Button>ir a pagar</Button>
-                <Button onClick={clearCart}>vaciar carrito</Button>
+                  <Button>ir a pagar</Button>
+                  <Button onClick={clearCart}>vaciar carrito</Button>
                 </Stack>
               ) : null}
             </ModalFooter>
