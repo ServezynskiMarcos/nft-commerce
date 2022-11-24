@@ -74,14 +74,14 @@ const SheelsCollections = () => {
                     p={4}
                   >
                     <Button variant="solid" colorScheme="secondary">
-                      Buy now
+                      Comprar
                     </Button>
                     <Button
                       variant="ghost"
                       colorScheme="secondary"
                       onClick={() => handleAdd(e.id)}
                     >
-                      Add to cart
+                      Añadir al carrito
                     </Button>
                   </Stack>
                 </Card>

@@ -4,7 +4,9 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     allProducts: { nfts },
-    carrito: [],
+    carrito: localStorage.getItem("carrito")
+      ? JSON.parse(localStorage.getItem("carrito"))
+      : [],
   },
   reducers: {
     AddToCart: (state, action) => {
@@ -29,6 +31,7 @@ export const cartSlice = createSlice({
           state.carrito = [...state.carrito, product];
         }
       }
+      localStorage.setItem("carrito", JSON.stringify(state.carrito));
     },
     RemoveToCart: (state, action) => {
       const deleteProduct = state.carrito.filter(

@@ -14,22 +14,27 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { ClearCart, RemoveToCart } from "../../Redux/Slices/Cart";
 
 const CartOverlay = () => {
-  const OverlayOne = () => (
+  const OverlayCart = () => (
     <ModalOverlay
       bg="blackAlpha.300"
       backdropFilter="blur(10px) hue-rotate(90deg)"
     />
   );
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [overlay, setOverlay] = useState(<OverlayOne />);
+  const [overlay, setOverlay] = useState(<OverlayCart />);
   const { carrito } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
 
   const remove = (id) => {
     dispatch(RemoveToCart(id));
@@ -44,7 +49,7 @@ const CartOverlay = () => {
         alignItems="center"
         cursor="pointer"
         onClick={() => {
-          setOverlay(<OverlayOne />);
+          setOverlay(<OverlayCart />);
           onOpen();
         }}
         fontWeight="bold"
