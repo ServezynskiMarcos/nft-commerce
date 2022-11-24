@@ -20,7 +20,7 @@ const Home = () => {
     <Stack spacing={20}>
       <Stack backgroundImage={present} backgroundSize="cover">
         <Stack
-          direction={{ base: "column", md: "row" }}
+          direction={{ base: "column", lg: "row" }}
           justifyContent="space-evenly"
           alignItems="center"
           backdropFilter="auto"
@@ -30,17 +30,19 @@ const Home = () => {
         >
           <Stack
             w={{ base: "full", md: "50%" }}
-            alignItems={{ base: "center", md: "start" }}
+            alignItems={{ base: "center", lg: "start" }}
+            
           >
             <Text
               fontSize={{ base: "lg", md: "6xl" }}
               fontFamily="primary"
               fontWeight="bold"
               color={color}
+              textAlign={{ base: "center", lg: "start" }}
             >
               Los mejores NFTs
             </Text>
-            <Text fontSize={{ base: "lg", md: "2xl" }} color={color}  fontFamily="secondary" >
+            <Text fontSize={{ base: "lg", md: "2xl" }} color={color}  fontFamily="secondary" textAlign={{ base: "center", lg: "start" }}>
               Donde los comerciantes
             </Text>{" "}
             <Text
@@ -48,6 +50,7 @@ const Home = () => {
               fontSize={{ base: "lg", md: "xl" }}
               fontFamily="secondary"
               fontWeight="bold"
+              textAlign={{ base: "center", lg: "start" }}
             >
               han ganado más de $1.300 millones de dólares.
             </Text>
