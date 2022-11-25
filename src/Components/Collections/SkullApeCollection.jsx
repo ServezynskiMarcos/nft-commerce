@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Accordion,
   AccordionButton,
@@ -17,25 +16,30 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { SkullApe } from "../../assets/nfts.json";
 import { AddToCart } from "../../Redux/Slices/Cart";
 
-
 const SkullApeCollection = () => {
   const dispatch = useDispatch();
-  const bgcolor = useColorModeValue("gray.200", undefined);
+  const bgcolor = useColorModeValue("gray.300", undefined);
 
   const handleAdd = (e) => {
     dispatch(AddToCart(e));
   };
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple fontFamily="secondary" >
+    <Accordion defaultIndex={[0]} allowMultiple fontFamily="secondary">
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box flex="1" textAlign="left" color="secondary.500" fontWeight="bold">
+            <Box
+              flex="1"
+              textAlign="left"
+              color="secondary.500"
+              fontWeight="bold"
+            >
               Skull Ape
             </Box>
             <AccordionIcon />
@@ -54,8 +58,14 @@ const SkullApeCollection = () => {
           >
             {SkullApe?.map((e, i) => {
               return (
-                <Card maxW="sm" size="sm" key={i} bg={bgcolor}>
-                  <CardBody>
+                <Card
+                  maxW="sm"
+                  size="sm"
+                  key={i}
+                  bg={bgcolor}
+                  cursor={"pointer"}
+                >
+                  <CardBody onClick={() => (location.href = `nft/${e.id}`)}>
                     <Image src={e.image} alt={e.name} borderRadius="lg" />
                     <Stack mt="6" spacing="3">
                       <Stack direction="row" justifyContent="space-between">

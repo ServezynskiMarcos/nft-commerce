@@ -15,7 +15,7 @@ import Cards from "../Cards/Cards";
 
 const Home = () => {
   const color = useColorModeValue("white", undefined);
-  const bgcolor = useColorModeValue("gray.200", undefined);
+  const bgcolor = useColorModeValue("gray.300", undefined);
   return (
     <Stack spacing={20}>
       <Stack backgroundImage={present} backgroundSize="cover">

@@ -14,7 +14,10 @@ const Nav = () => {
       w="full"
       alignItems="center"
     >
-      <Text fontWeight="bold">NFT Commerce</Text>
+      <a href="/">
+        {" "}
+        <Text fontWeight="bold">NFT Commerce</Text>
+      </a>
 
       <Stack direction="row" alignItems="center" spacing={8}>
         <a href="#colecciones">

@@ -23,18 +23,28 @@ import { AddToCart } from "../../Redux/Slices/Cart";
 
 const SheelsCollections = () => {
   const dispatch = useDispatch();
-  const bgcolor = useColorModeValue("gray.200", undefined);
-  
+  const bgcolor = useColorModeValue("gray.300", undefined);
+
   const handleAdd = (e) => {
     dispatch(AddToCart(e));
   };
 
   return (
-    <Accordion defaultIndex={[0]} allowMultiple id="popular" fontFamily="secondary">
+    <Accordion
+      defaultIndex={[0]}
+      allowMultiple
+      id="popular"
+      fontFamily="secondary"
+    >
       <AccordionItem>
         <h2>
           <AccordionButton>
-            <Box flex="1" textAlign="left"  color="secondary.500" fontWeight="bold">
+            <Box
+              flex="1"
+              textAlign="left"
+              color="secondary.500"
+              fontWeight="bold"
+            >
               Sheels
             </Box>
             <AccordionIcon />
@@ -53,8 +63,14 @@ const SheelsCollections = () => {
           >
             {Sheels?.map((e, i) => {
               return (
-                <Card maxW="sm" size="sm" key={i} bg={bgcolor}>
-                  <CardBody>
+                <Card
+                  maxW="sm"
+                  size="sm"
+                  key={i}
+                  bg={bgcolor}
+                  cursor={'pointer'}
+                >
+                  <CardBody onClick={() => (location.href = `nft/${e.id}`)}>
                     <Image src={e.image} alt={e.name} borderRadius="lg" />
                     <Stack mt="6" spacing="3">
                       <Stack direction="row" justifyContent="space-between">
