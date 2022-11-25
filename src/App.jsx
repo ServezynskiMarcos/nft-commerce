@@ -10,7 +10,7 @@ function App() {
       <Nav />
       <Routes>
         <Route exact path={"/"} element={<Home />} />
-        <Route path={"https://nft-commerce-tau.vercel.app/nft/:id"} element={<DetailCard />} />
+        <Route exact path={"/nft/:id"} element={<DetailCard />} />
       </Routes>
       <Footer />
     </Container>
