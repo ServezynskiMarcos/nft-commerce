@@ -53,9 +53,6 @@ const Nav = () => {
         spacing={8}
         display={{ base: "none", md: "flex" }}
       >
-        <a href="/mercado">
-          <Text fontWeight="bold" fontFamily={'primary'}>Monedas</Text>
-        </a>{" "}
         <IconButton
           aria-label="toggle theme"
           size="sm"
@@ -63,6 +60,9 @@ const Nav = () => {
           icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
           variant='unstyled'
         />
+        <a href="/mercado">
+          <Text fontWeight="bold" fontFamily={'primary'}>Monedas</Text>
+        </a>{" "}
         <CartOverlay />
         <Avatar src="'https://bit.ly/broken-link' " size={"sm"} />
       </Stack>
