@@ -13,6 +13,7 @@ import { GiCutDiamond } from "react-icons/gi";
 import present from "../../assets/present.png";
 import Cards from "../Cards/Cards";
 
+
 const Home = () => {
   const color = useColorModeValue("white", undefined);
   const bgcolor = useColorModeValue("gray.300", undefined);
