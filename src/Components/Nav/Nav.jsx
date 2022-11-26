@@ -3,7 +3,7 @@ import {
   IconButton,
   Stack,
   Text,
-  useColorMode,
+  useColorMode
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -21,6 +21,7 @@ const Nav = () => {
     window.addEventListener("resize", () => responsive());
   }, []);
 
+
   return (
     <Stack
       direction="row"
@@ -31,10 +32,17 @@ const Nav = () => {
     >
       <a href="/">
         {" "}
-        <Text fontWeight="bold">NFT Commerce</Text>
+        <Text fontWeight="bold" fontFamily={'primary'}>NFT Commerce</Text>
       </a>
       {screen === "mobile" ? (
-        <Stack>
+        <Stack direction={'row'} alignItems="center">
+          <IconButton
+          aria-label="toggle theme"
+          size="sm"
+          onClick={toggleColorMode}
+          icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
+          variant='unstyled'
+        />
           <DrawerMenu />
         </Stack>
       ) : null}
@@ -46,13 +54,14 @@ const Nav = () => {
         display={{ base: "none", md: "flex" }}
       >
         <a href="/mercado">
-          <Text fontWeight="bold">Monedas</Text>
+          <Text fontWeight="bold" fontFamily={'primary'}>Monedas</Text>
         </a>{" "}
         <IconButton
           aria-label="toggle theme"
           size="sm"
           onClick={toggleColorMode}
           icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
+          variant='unstyled'
         />
         <CartOverlay />
         <Avatar src="'https://bit.ly/broken-link' " size={"sm"} />
