@@ -2,9 +2,7 @@ import {
   Avatar,
   IconButton,
   Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
+  MenuButton, MenuGroup,
   MenuItem,
   MenuList,
   Stack,
@@ -13,9 +11,10 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { app } from "../../fb";
 import CartOverlay from "./CartOverlay";
 import DrawerMenu from "./Drawer";
-const Nav = () => {
+const Nav = ({ userLog }) => {
   const { toggleColorMode, colorMode } = useColorMode();
   const [screen, setScreen] = useState("");
 
@@ -26,6 +25,11 @@ const Nav = () => {
     window.addEventListener("resize", () => responsive());
   }, []);
 
+  const signOut = () => {
+    app.auth().signOut();
+    localStorage.removeItem("user");
+    location.reload();
+  };
   return (
     <Stack
       direction="row"
@@ -52,7 +56,6 @@ const Nav = () => {
           <DrawerMenu />
         </Stack>
       ) : null}
-
       <Stack
         direction="row"
         alignItems="center"
@@ -72,28 +75,39 @@ const Nav = () => {
           </Text>
         </a>{" "}
         <CartOverlay />
-        <Menu>
-          <MenuButton colorScheme="pink">
-            <Avatar src="'https://bit.ly/broken-link' " size={"sm"} />
-          </MenuButton>
-          <MenuList>
-            <MenuGroup title="Profile">
-              <a href="/newAccount">
-                <MenuItem>Crear Cuenta</MenuItem>
-              </a>
-            </MenuGroup>
-            <MenuGroup>
-              <a href="/log">
-                <MenuItem>Iniciar Sesión</MenuItem>
-              </a>
-            </MenuGroup>
-
-            <MenuDivider />
-            <MenuGroup>
-              <MenuItem>Cerrar Sesión</MenuItem>
-            </MenuGroup>
-          </MenuList>
-        </Menu>
+        {userLog ? (
+          <Menu>
+            <MenuButton colorScheme="pink">
+              <Avatar
+                src="https://www.shareicon.net/data/512x512/2016/05/24/770137_man_512x512.png"
+                size={"sm"}
+              />
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title={userLog.email}>
+                <MenuItem onClick={signOut}>Cerrar Sesión</MenuItem>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        ) : (
+          <Menu>
+            <MenuButton colorScheme="pink">
+              <Avatar src="https://bit.ly/broken-link" size={"sm"} />
+            </MenuButton>
+            <MenuList>
+              <MenuGroup title="Profile">
+                <a href="/newAccount">
+                  <MenuItem>Crear Cuenta</MenuItem>
+                </a>
+              </MenuGroup>
+              <MenuGroup>
+                <a href="/log">
+                  <MenuItem>Iniciar Sesión</MenuItem>
+                </a>
+              </MenuGroup>
+            </MenuList>
+          </Menu>
+        )}
       </Stack>
     </Stack>
   );

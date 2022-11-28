@@ -4,16 +4,15 @@ import {
   FormErrorMessage,
   FormLabel,
   Input,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
+import { app } from "../../fb";
 const Account = () => {
   const [nuevoUser, setNuevoUser] = useState({
     correo: "",
     contrasena: "",
-    displayName: "",
   });
 
   const handleChange = (e) => {
@@ -22,14 +21,12 @@ const Account = () => {
       [e.target.name]: e.target.value,
     });
   };
-  const dispatch = useDispatch();
-  const handleSubmit = async () => {
-    await createUserWithEmailAndPassword(
-      auth,
-      nuevoUser.correo,
-      nuevoUser.contrasena,
-      nuevoUser.displayName
-    );
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    app
+      .auth()
+      .createUserWithEmailAndPassword(nuevoUser.correo, nuevoUser.contrasena);
+    navigate("/");
   };
   const isError = {
     email: nuevoUser.correo === "",
@@ -47,8 +44,6 @@ const Account = () => {
         isInvalid={isError.email || isError.pass}
         w={{ base: "full", md: "50%", xl: "30%" }}
       >
-        <FormLabel textAlign={"center"}>Nombre de Usuario</FormLabel>
-        <Input type="email" onChange={handleChange} name="displayName" />
         <FormLabel textAlign={"center"}>Email</FormLabel>
         <Input type="email" onChange={handleChange} name="correo" />
         {nuevoUser.correo === "" ? (

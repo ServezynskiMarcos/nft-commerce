@@ -7,10 +7,19 @@ import DetailCard from "./Components/DetailCard/DetailCard";
 import Crypto from "./Components/Crypto/Crypto";
 import Account from "./Components/Account/Account";
 import LogIn from "./Components/Account/LogIn";
+import { useEffect, useState } from "react";
+import { app } from "./fb";
 function App() {
+  const [userLog, setUserLog] = useState(null);
+  useEffect(() => {
+    app.auth().onAuthStateChanged((user) => {
+      setUserLog(user);
+      localStorage.setItem("user",JSON.stringify(user.email));
+    });
+  }, []);
   return (
     <Container minW="full" m={0} p={0}>
-      <Nav />
+      <Nav userLog={userLog}/>
       <Routes>
         <Route exact path={"/"} element={<Home />} />
         <Route exact path={"/nft/:id"} element={<DetailCard />} />

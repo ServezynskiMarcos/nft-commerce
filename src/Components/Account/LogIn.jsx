@@ -1,42 +1,49 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
   Button,
   FormControl,
   FormErrorMessage,
   FormLabel,
   Input,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { app } from "../../fb";
 
 const LogIn = () => {
-  const [nuevoUser, setNuevoUser] = useState({
+  const [logUser, setLogUser] = useState({
     correo: "",
     contrasena: "",
-    displayName: "",
   });
 
   const handleChange = (e) => {
-    setNuevoUser({
-      ...nuevoUser,
+    setLogUser({
+      ...logUser,
       [e.target.name]: e.target.value,
     });
   };
+  const [alerta, setAlerta] = useState(false);
+  const navigate = useNavigate();
 
-  // const navigate = useNavigate();
-  // const handleSubmit = async () => {
-  //   await signInWithEmailAndPassword(
-  //     auth,
-  //     nuevoUser.correo,
-  //     nuevoUser.contrasena
-  //   );
-  //   dispatch(LogUser(nuevoUser));
-  //   navigate("/");
-  // };
+  const Login = () => {
+    app
+      .auth()
+      .signInWithEmailAndPassword(logUser.correo, logUser.contrasena)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/");
+      })
+      .catch((err) => {
+        setAlerta(true);
+      });
+  };
   const isError = {
-    email: nuevoUser.correo === "",
-    pass: nuevoUser.contrasena.length < 6,
+    email: logUser.correo === "",
+    pass: logUser.contrasena.length < 6,
   };
 
   return (
@@ -52,7 +59,7 @@ const LogIn = () => {
       >
         <FormLabel textAlign={"center"}>Email</FormLabel>
         <Input type="email" onChange={handleChange} name="correo" />
-        {nuevoUser.correo === "" ? (
+        {logUser.correo === "" ? (
           <FormErrorMessage color="secondary.500">
             Ingrese su correo.
           </FormErrorMessage>
@@ -64,20 +71,28 @@ const LogIn = () => {
           name="contrasena"
           isRequired
         />
-        {nuevoUser.contrasena === "" ? (
+        {logUser.contrasena === "" ? (
           <FormErrorMessage color="secondary.500">
             Debe ingresar una contraseña.
           </FormErrorMessage>
         ) : null}
-        {nuevoUser.contrasena.length < 6 ? (
+        {logUser.contrasena.length < 6 ? (
           <FormErrorMessage color="secondary.500">
             La contraseña debe tener 6 o más caracteres.
           </FormErrorMessage>
         ) : null}
       </FormControl>
-      <Button  type={"submit"}>
+      <Button onClick={Login} type={"submit"}>
         Ingresar
       </Button>
+      {alerta && (
+        <Alert status="error" w={"30%"}>
+          <AlertIcon />
+          <AlertDescription>
+            Comprueba que tus datos sean correctos.
+          </AlertDescription>
+        </Alert>
+      )}
     </Stack>
   );
 };
