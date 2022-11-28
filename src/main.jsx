@@ -6,11 +6,15 @@ import store from "./Redux/store";
 import { Provider } from "react-redux";
 import theme from "./theme";
 import { BrowserRouter as Router } from "react-router-dom";
+import { FirebaseAppProvider } from "reactfire";
+import fireBaseConfig from "./fireBase-config";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
     <ChakraProvider theme={theme}>
       <Provider store={store}>
-        <App />
+        <FirebaseAppProvider firebaseConfig={fireBaseConfig}>
+          <App />
+        </FirebaseAppProvider>
       </Provider>
     </ChakraProvider>
   </Router>

@@ -2,17 +2,18 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader, Icon, Image,
+  CardHeader,
+  Icon,
+  Image,
   Stack,
   Text,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { BiBadgeCheck } from "react-icons/bi";
 import { GiCutDiamond } from "react-icons/gi";
 import present from "../../assets/present.png";
 import Cards from "../Cards/Cards";
-
 
 const Home = () => {
   const color = useColorModeValue("white", undefined);
@@ -21,21 +22,21 @@ const Home = () => {
     <Stack spacing={20}>
       <Stack backgroundImage={present} backgroundSize="cover">
         <Stack
-          direction={{ base: "column", lg: "row" }}
+          direction={{ base: "column", md: "row" }}
           justifyContent="space-evenly"
           alignItems="center"
           backdropFilter="auto"
           backdropBlur="30px"
-          h={"90vh"}
+          h={"100vh"}
           w="full"
         >
           <Stack
             w={{ base: "full", md: "50%" }}
             alignItems={{ base: "center", lg: "start" }}
-            
+            spacing={0}
           >
             <Text
-              fontSize={{ base: "lg", md: "6xl" }}
+              fontSize={{ base: "lg", md: "4xl", lg: "6xl" }}
               fontFamily="primary"
               fontWeight="bold"
               color={color}
@@ -56,19 +57,21 @@ const Home = () => {
               han ganado más de $1.300 millones de dólares.
             </Text>
           </Stack>
-          <Card p={2} bg={bgcolor}>
+          <Card
+            p={2}
+            bg={bgcolor}
+            maxW={{ base: "sm", xl: "md" }}
+            maxH={{ base: "md", xl: "lg" }}
+            size="md"
+          >
             <CardHeader p={2} alignItems="center" display="flex" gap={2}>
-              <Icon as={GiCutDiamond} w={6} h={6} />
-              <a href="#popular"><Text fontWeight="bold">Coleccion popular</Text></a>
+              <Icon as={GiCutDiamond} w={{base: 4, lg: 6}} h={{base: 4, lg: 6}} />
+              <a href="#popular">
+                <Text fontWeight="bold">Coleccion popular</Text>
+              </a>
             </CardHeader>
-            <CardBody p={0}>
-              <Image
-                src={present}
-                w={{ base: "360px", md: "460px" }}
-                height={{ base: "360px", md: "460px" }}
-                borderRadius="20px"
-                zIndex={100}
-              />
+            <CardBody>
+              <Image src={present} borderRadius="20px" />
             </CardBody>
             <CardFooter p={1} justifyContent="center">
               <Stack direction="row" alignItems="center">
