@@ -16,7 +16,7 @@ function App() {
         <Route exact path={"/nft/:id"} element={<DetailCard />} />
         <Route exact path={"/mercado"} element={<Crypto />} />
         <Route exact path={"/newAccount"} element={<Account />} />
-        <Route exact path={"/login"} element={<LogIn />} />
+        <Route exact path={"/log"} element={<LogIn />} />
       </Routes>
       <Footer />
     </Container>

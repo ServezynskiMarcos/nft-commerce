@@ -6,13 +6,10 @@ import {
   Input,
   Stack
 } from "@chakra-ui/react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 const Account = () => {
-  const auth = getAuth();
-
   const [nuevoUser, setNuevoUser] = useState({
     correo: "",
     contrasena: "",

@@ -13,7 +13,7 @@ import React from "react";
 import { BiBadgeCheck } from "react-icons/bi";
 import { GiCutDiamond } from "react-icons/gi";
 import present from "../../assets/present.png";
-
+import Cards from "../../Components/Cards/Cards"
 const Home = () => {
   const color = useColorModeValue("white", undefined);
   const bgcolor = useColorModeValue("gray.300", undefined);
