@@ -1,4 +1,7 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
   Button,
   FormControl,
   FormErrorMessage,
@@ -14,7 +17,7 @@ const Account = () => {
     correo: "",
     contrasena: "",
   });
-
+  const [alerta, setAlerta] = useState(false);
   const handleChange = (e) => {
     setNuevoUser({
       ...nuevoUser,
@@ -25,8 +28,14 @@ const Account = () => {
   const handleSubmit = () => {
     app
       .auth()
-      .createUserWithEmailAndPassword(nuevoUser.correo, nuevoUser.contrasena);
-    navigate("/");
+      .createUserWithEmailAndPassword(nuevoUser.correo, nuevoUser.contrasena)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/");
+      })
+      .catch((err) => {
+        setAlerta(true);
+      });
   };
   const isError = {
     email: nuevoUser.correo === "",
@@ -72,6 +81,14 @@ const Account = () => {
       <Button onClick={handleSubmit} type={"submit"}>
         Ingresar
       </Button>
+      {alerta ? (
+        <Alert status="error" w={"30%"}>
+          <AlertIcon />
+          <AlertDescription>
+            Compruebe que su correo sea el correcto.
+          </AlertDescription>
+        </Alert>
+      ) : null}
     </Stack>
   );
 };
