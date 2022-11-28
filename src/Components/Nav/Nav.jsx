@@ -1,6 +1,12 @@
 import {
   Avatar,
   IconButton,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
   Stack,
   Text,
   useColorMode
@@ -9,7 +15,6 @@ import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import CartOverlay from "./CartOverlay";
 import DrawerMenu from "./Drawer";
-
 const Nav = () => {
   const { toggleColorMode, colorMode } = useColorMode();
   const [screen, setScreen] = useState("");
@@ -21,7 +26,6 @@ const Nav = () => {
     window.addEventListener("resize", () => responsive());
   }, []);
 
-
   return (
     <Stack
       direction="row"
@@ -32,17 +36,19 @@ const Nav = () => {
     >
       <a href="/">
         {" "}
-        <Text fontWeight="bold" fontFamily={'primary'}>NFT Commerce</Text>
+        <Text fontWeight="bold" fontFamily={"primary"}>
+          NFT Commerce
+        </Text>
       </a>
       {screen === "mobile" ? (
-        <Stack direction={'row'} alignItems="center">
+        <Stack direction={"row"} alignItems="center">
           <IconButton
-          aria-label="toggle theme"
-          size="sm"
-          onClick={toggleColorMode}
-          icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-          variant='unstyled'
-        />
+            aria-label="toggle theme"
+            size="sm"
+            onClick={toggleColorMode}
+            icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
+            variant="unstyled"
+          />
           <DrawerMenu />
         </Stack>
       ) : null}
@@ -58,13 +64,36 @@ const Nav = () => {
           size="sm"
           onClick={toggleColorMode}
           icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-          variant='unstyled'
+          variant="unstyled"
         />
         <a href="/mercado">
-          <Text fontWeight="bold" fontFamily={'primary'}>Monedas</Text>
+          <Text fontWeight="bold" fontFamily={"primary"}>
+            Monedas
+          </Text>
         </a>{" "}
         <CartOverlay />
-        <Avatar src="'https://bit.ly/broken-link' " size={"sm"} />
+        <Menu>
+          <MenuButton colorScheme="pink">
+            <Avatar src="'https://bit.ly/broken-link' " size={"sm"} />
+          </MenuButton>
+          <MenuList>
+            <MenuGroup title="Profile">
+              <a href="/newAccount">
+                <MenuItem>Crear Cuenta</MenuItem>
+              </a>
+            </MenuGroup>
+            <MenuGroup>
+              <a href="/log">
+                <MenuItem>Iniciar Sesión</MenuItem>
+              </a>
+            </MenuGroup>
+
+            <MenuDivider />
+            <MenuGroup>
+              <MenuItem>Cerrar Sesión</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
       </Stack>
     </Stack>
   );

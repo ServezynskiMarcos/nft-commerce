@@ -13,11 +13,11 @@ import React from "react";
 import { BiBadgeCheck } from "react-icons/bi";
 import { GiCutDiamond } from "react-icons/gi";
 import present from "../../assets/present.png";
-import Cards from "../Cards/Cards";
 
 const Home = () => {
   const color = useColorModeValue("white", undefined);
   const bgcolor = useColorModeValue("gray.300", undefined);
+
   return (
     <Stack spacing={20}>
       <Stack backgroundImage={present} backgroundSize="cover">
@@ -53,7 +53,11 @@ const Home = () => {
             size="md"
           >
             <CardHeader p={2} alignItems="center" display="flex" gap={2}>
-              <Icon as={GiCutDiamond} w={{base: 4, lg: 6}} h={{base: 4, lg: 6}} />
+              <Icon
+                as={GiCutDiamond}
+                w={{ base: 4, lg: 6 }}
+                h={{ base: 4, lg: 6 }}
+              />
               <a href="#popular">
                 <Text fontWeight="bold">Coleccion popular</Text>
               </a>
