@@ -16,7 +16,7 @@ const Paypal = () => {
   const aproved = () => {
     navigate("/");
     clearCart();
-    alert("You have a dinner");
+    alert("La compra se ha realizado correctamente");
   };
   const createOrder = (data, actions) => {
     return actions.order.create({
