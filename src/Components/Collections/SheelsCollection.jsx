@@ -14,7 +14,7 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch } from "react-redux";
@@ -68,7 +68,7 @@ const SheelsCollections = () => {
                   size="sm"
                   key={i}
                   bg={bgcolor}
-                  cursor={'pointer'}
+                  cursor={"pointer"}
                 >
                   <CardBody onClick={() => (location.href = `nft/${e.id}`)}>
                     <Image src={e.image} alt={e.name} borderRadius="lg" />
@@ -89,9 +89,11 @@ const SheelsCollections = () => {
                     justifyContent="space-around"
                     p={4}
                   >
-                    <Button variant="solid" colorScheme="secondary">
-                      Comprar
-                    </Button>
+                    <a href="/buy">
+                      <Button variant="solid" colorScheme="secondary">
+                        Comprar
+                      </Button>
+                    </a>
                     <Button
                       variant="ghost"
                       colorScheme="secondary"

@@ -84,9 +84,11 @@ const SkullApeCollection = () => {
                     justifyContent="space-around"
                     p={4}
                   >
-                    <Button variant="solid" colorScheme="secondary">
-                      Comprar
-                    </Button>
+                    <a href="/buy">
+                      <Button variant="solid" colorScheme="secondary">
+                        Comprar
+                      </Button>
+                    </a>
                     <Button
                       variant="ghost"
                       colorScheme="secondary"

@@ -8,6 +8,7 @@ import {
   FormLabel,
   Input,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -47,8 +48,12 @@ const Account = () => {
       minH={"100vh"}
       alignItems={"center"}
       justifyContent={"center"}
-      spacing={4}
+      spacing={8}
     >
+      <Text fontSize={{base: '4xl', lg:'6xl' }} fontFamily={"primary"} fontWeight={"bold"}>
+        {" "}
+        Registrate{" "}
+      </Text>
       <FormControl
         isInvalid={isError.email || isError.pass}
         w={{ base: "full", md: "50%", xl: "30%" }}

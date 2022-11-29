@@ -8,12 +8,15 @@ import {
   Box,
   Button,
   Card,
-  CardBody, Container,
+  CardBody,
+  Container,
   Divider,
-  Icon, Image,
-  Stack, Text,
+  Icon,
+  Image,
+  Stack,
+  Text,
   Tooltip,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { BiBadgeCheck } from "react-icons/bi";
@@ -152,7 +155,7 @@ const DetailCard = () => {
                           fontWeight={"bold"}
                           fontSize={"lg"}
                         >
-                          5.4033
+                          {active === "skull" ? skull.price : sheels.price}
                         </Text>
                       </Stack>
                     </Stack>
@@ -166,9 +169,11 @@ const DetailCard = () => {
                   </Stack>
 
                   <Stack alignItems={{ base: "center", xl: "stretch" }}>
-                    <Button w={{ base: 52, lg: 60 }} colorScheme="secondary">
-                      Comprar
-                    </Button>
+                    <a href="/buy">
+                      <Button w={{ base: 52, lg: 60 }} colorScheme="secondary">
+                        Comprar
+                      </Button>
+                    </a>
                     <Button
                       w={{ base: 52, lg: 60 }}
                       onClick={() => handleAdd(id)}

@@ -9,12 +9,13 @@ import Account from "./Components/Account/Account";
 import LogIn from "./Components/Account/LogIn";
 import { useEffect, useState } from "react";
 import { app } from "./fb";
+import Paypal from "./Components/Paypal/Paypal";
 function App() {
   const [userLog, setUserLog] = useState(null);
   useEffect(() => {
     app.auth().onAuthStateChanged((user) => {
       setUserLog(user);
-      localStorage.setItem("user",JSON.stringify(user.email));
+      localStorage.setItem("user",JSON.stringify(user?.email));
     });
   }, []);
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path={"/mercado"} element={<Crypto />} />
         <Route exact path={"/newAccount"} element={<Account />} />
         <Route exact path={"/log"} element={<LogIn />} />
+        <Route exact path={"/buy"} element={<Paypal />} />
       </Routes>
       <Footer />
     </Container>

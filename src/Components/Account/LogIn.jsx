@@ -8,6 +8,7 @@ import {
   FormLabel,
   Input,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
@@ -53,6 +54,7 @@ const LogIn = () => {
       justifyContent={"center"}
       spacing={4}
     >
+      <Text fontSize={{base: '4xl', lg:'6xl' }} fontFamily={'primary'} fontWeight={'bold'}> Iniciar Sesión </Text>
       <FormControl
         isInvalid={isError.email || isError.pass}
         w={{ base: "full", md: "50%", xl: "30%" }}

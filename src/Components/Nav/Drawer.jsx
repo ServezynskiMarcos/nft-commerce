@@ -48,7 +48,7 @@ const DrawerMenu = () => {
             <Stack alignItems="center" spacing={8}>
               <a href="/mercado">
                 <Text fontWeight="bold" fontFamily={"primary"} fontSize={"2xl"}>
-                  Monedas
+                  El mercado
                 </Text>
               </a>{" "}
               <CartOverlay />

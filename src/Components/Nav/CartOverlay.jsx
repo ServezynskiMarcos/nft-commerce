@@ -102,7 +102,9 @@ const CartOverlay = () => {
             <ModalFooter>
               {carrito.length > 0 ? (
                 <Stack direction="row" spacing={2}>
-                  <Button>ir a pagar</Button>
+                  <a href="/buy">
+                    <Button>ir a pagar</Button>
+                  </a>
                   <Button onClick={clearCart}>vaciar carrito</Button>
                 </Stack>
               ) : null}

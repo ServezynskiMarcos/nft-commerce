@@ -1,13 +1,14 @@
 import {
   Avatar,
-  IconButton,
+  Icon,
   Menu,
-  MenuButton, MenuGroup,
+  MenuButton,
+  MenuGroup,
   MenuItem,
   MenuList,
   Stack,
   Text,
-  useColorMode
+  useColorMode,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
@@ -45,15 +46,45 @@ const Nav = ({ userLog }) => {
         </Text>
       </a>
       {screen === "mobile" ? (
-        <Stack direction={"row"} alignItems="center">
-          <IconButton
-            aria-label="toggle theme"
-            size="sm"
+        <Stack direction={"row"} alignItems="center" spacing={4}>
+          <Icon
             onClick={toggleColorMode}
-            icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-            variant="unstyled"
+            as={colorMode === "dark" ? FaSun : FaMoon}
           />
           <DrawerMenu />
+          {userLog ? (
+            <Menu>
+              <MenuButton colorScheme="pink">
+                <Avatar
+                  src="https://www.shareicon.net/data/512x512/2016/05/24/770137_man_512x512.png"
+                  size={"sm"}
+                />
+              </MenuButton>
+              <MenuList>
+                <MenuGroup title={userLog.email}>
+                  <MenuItem onClick={signOut}>Cerrar Sesión</MenuItem>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+          ) : (
+            <Menu>
+              <MenuButton colorScheme="pink">
+                <Avatar src="https://bit.ly/broken-link" size={"sm"} />
+              </MenuButton>
+              <MenuList>
+                <MenuGroup title="Profile">
+                  <a href="/newAccount">
+                    <MenuItem>Crear Cuenta</MenuItem>
+                  </a>
+                </MenuGroup>
+                <MenuGroup>
+                  <a href="/log">
+                    <MenuItem>Iniciar Sesión</MenuItem>
+                  </a>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+          )}
         </Stack>
       ) : null}
       <Stack
@@ -62,16 +93,13 @@ const Nav = ({ userLog }) => {
         spacing={8}
         display={{ base: "none", md: "flex" }}
       >
-        <IconButton
-          aria-label="toggle theme"
-          size="sm"
+        <Icon
           onClick={toggleColorMode}
-          icon={colorMode === "dark" ? <FaSun /> : <FaMoon />}
-          variant="unstyled"
+          as={colorMode === "dark" ? FaSun : FaMoon}
         />
         <a href="/mercado">
           <Text fontWeight="bold" fontFamily={"primary"}>
-            Monedas
+            El mercado
           </Text>
         </a>{" "}
         <CartOverlay />
