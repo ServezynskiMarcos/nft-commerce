@@ -56,7 +56,7 @@ const Account = () => {
       </Text>
       <FormControl
         isInvalid={isError.email || isError.pass}
-        w={{ base: "full", md: "50%", xl: "30%" }}
+        w={{ base: "90%", md: "50%", xl: "30%" }}
       >
         <FormLabel textAlign={"center"}>Email</FormLabel>
         <Input type="email" onChange={handleChange} name="correo" />
